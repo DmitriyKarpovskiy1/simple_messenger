@@ -3,9 +3,10 @@
 from flask import Flask
 from flask import request
 from core import api
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/')
 def main():
