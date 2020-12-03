@@ -180,7 +180,8 @@ class Data_accessor(object):
                 return None
             else:
                 return result[0]
-        except:
+        except e:
+            print(e)
             return None
 
     def delete_chat(self, chat_id):
