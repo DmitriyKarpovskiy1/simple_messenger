@@ -175,6 +175,7 @@ class Data_accessor(object):
             entries = cursor.fetchall()
             for (owner) in entries:
                 result.append(*owner)
+            print(cursor)
             cursor.close()
             if len(result) == 0:
                 return None
