@@ -41,7 +41,7 @@ def get_chat_notifications(user_name):
     if user_name is None:
         return response.response(400, "Need user")
     result = data_accessor.get_chat_notifications(user_name)
-    if result:
+    if result is not None:
         return response.response(200, f"Chats information for a user with the name {user_name}", sensible=result)
     return response.response(500, f"Failed to get information for a user with the name {user_name}")
 
