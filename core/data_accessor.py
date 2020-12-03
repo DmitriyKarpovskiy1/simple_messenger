@@ -102,7 +102,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"login": user})
             result = []
-            for (number) in cursor:
+            entries = cursor.fetchall()
+            for (number) in entries:
                 result.append(*number)
             cursor.close()
             return result
@@ -134,7 +135,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"id": chat_number})
             result = []
-            for (owner) in cursor:
+            entries = cursor.fetchall()
+            for (owner) in entries:
                 result.append(*owner)
             if len(result) == 0:
                 return None
@@ -170,7 +172,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"id": chat_number})
             result = []
-            for (owner) in cursor:
+            entries = cursor.fetchall()
+            for (owner) in entries:
                 result.append(*owner)
             cursor.close()
             if len(result) == 0:
@@ -237,7 +240,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"id": chat_number})
             result = []
-            for (login) in cursor:
+            entries = cursor.fetchall()
+            for (login) in entries:
                 result.append(*login)
             cursor.close()
             return result
@@ -254,7 +258,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"login": user_name})
             result = []
-            for (num) in cursor:
+            entries = cursor.fetchall()
+            for (num) in entries:
                 result.append(*num)
             cursor.close()
             return result
@@ -302,7 +307,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"chat_id": chat_number})
             result = []
-            for (user, message) in cursor:
+            entries = cursor.fetchall()
+            for (user, message) in entries:
                 result.append({"user": user, "messge": message})
             cursor.close()
             return result
@@ -319,7 +325,8 @@ class Data_accessor(object):
                     """
             cursor.execute(query, {"login": user})
             result = []
-            for (number) in cursor:
+            entries = cursor.fetchall()
+            for (number) in entries:
                 result.append(*number)
             cursor.close()
             return result
