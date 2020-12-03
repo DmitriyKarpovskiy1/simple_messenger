@@ -7,7 +7,7 @@ DB_INFO = "constants/database.json"
 
 class Data_accessor(object):
  
-    def __init__(self):
+    def init(self):
         parent_dir = path.dirname(path.abspath(__file__))
         with open(f"{parent_dir}/../{DB_INFO}") as json_data:
             db_info = json.load(json_data)["mysql"]
@@ -15,6 +15,7 @@ class Data_accessor(object):
                                                  host=db_info["host"], database=db_info["database"])
 
     def create_user(self, name, password):
+        init()
         try:
             cursor = self.connector.cursor()
             query = """
@@ -30,6 +31,7 @@ class Data_accessor(object):
             return False
 
     def user_exist(self, name):
+        init()
         try:
             cursor = self.connector.cursor(dictionary=True)
             query = """
@@ -47,6 +49,7 @@ class Data_accessor(object):
             return True
 
     def create_chat(self, user_name, chat_name):
+        init()
         try:
             cursor = self.connector.cursor()
             query = """
@@ -63,6 +66,7 @@ class Data_accessor(object):
             return None
 
     def join_chat(self, chat_id, user):
+        init()
         try:
             cursor = self.connector.cursor()
             query = """
@@ -78,6 +82,7 @@ class Data_accessor(object):
             return False
 
     def create_chat_notifications(self, user, chat_id):
+        init()
         try:
             cursor = self.connector.cursor()
             query = """
@@ -93,6 +98,7 @@ class Data_accessor(object):
             return False
 
     def get_chat_notifications(self, user):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -111,6 +117,7 @@ class Data_accessor(object):
             return None
 
     def delete_chat_notification(self, user, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -126,6 +133,7 @@ class Data_accessor(object):
             return False
 
     def chat_owner(self, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -148,6 +156,7 @@ class Data_accessor(object):
             return None
 
     def leave_chat(self, user, chat_id):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -163,6 +172,7 @@ class Data_accessor(object):
             return False
 
     def chat_name(self, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -186,6 +196,7 @@ class Data_accessor(object):
             return None
 
     def delete_chat(self, chat_id):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -201,6 +212,7 @@ class Data_accessor(object):
             return False
 
     def check_password(self, user_name, password):
+        init()
         try:
             cursor = self.connector.cursor(dictionary=True)
             query = """
@@ -218,6 +230,7 @@ class Data_accessor(object):
             return False
 
     def change_password(self, user_name, password):
+        init()
         try:
             cursor = self.connector.cursor(dictionary=True)
             query = """
@@ -233,6 +246,7 @@ class Data_accessor(object):
             return False
 
     def all_users_in_chat(self, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -251,6 +265,7 @@ class Data_accessor(object):
             return None
 
     def all_chats_for_user(self, user_name):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -269,6 +284,7 @@ class Data_accessor(object):
             return None
 
     def create_message_notification(self, chat_id, users_names):
+        init()
         try:
             for user in users_names:
                 cursor = self.connector.cursor()
@@ -285,6 +301,7 @@ class Data_accessor(object):
             return False
 
     def send_message(self, user_name, chat_id, message):
+        init()
         try:
             cursor = self.connector.cursor()
             query = """
@@ -300,6 +317,7 @@ class Data_accessor(object):
             return False
 
     def list_messages(self, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -318,6 +336,7 @@ class Data_accessor(object):
             return None
 
     def get_messages_notifications(self, user):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
@@ -336,6 +355,7 @@ class Data_accessor(object):
             return None
 
     def delete_message_notification(self, user, chat_number):
+        init()
         try:
             cursor = self.connector.cursor(buffered=True)
             query = """
