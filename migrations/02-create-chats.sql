@@ -3,4 +3,4 @@ CREATE TABLE chats (
 	chat_name VARCHAR(60) NOT NULL,
 	owner VARCHAR(60) NOT NULL,
 	PRIMARY KEY (id)
-);
+) CHARACTER SET=utf8;

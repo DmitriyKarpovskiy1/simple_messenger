@@ -73,8 +73,6 @@ def chat_owner(chat_number):
 def leave_chat(user_name, chat_number):
     if user_name is None or chat_number is None:
         return response.response(400, "Need user and chat_number")
-    if user_name == data_accessor.chat_owner(chat_number):
-        return response.response(400, f"Chat owner can not leave chat {chat_number}")
     if data_accessor.leave_chat(user_name, chat_number):
         return response.response(200, f"Leave from chat {chat_number}")
     else:

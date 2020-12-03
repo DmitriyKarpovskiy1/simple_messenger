@@ -9,4 +9,4 @@ CREATE TABLE messages(
         ON DELETE CASCADE,
     FOREIGN KEY (login)
         REFERENCES users (login)
-);
+) CHARACTER SET=utf8;
