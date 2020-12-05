@@ -18,3 +18,4 @@ GRANT ALL PRIVILEGES ON simple_messenger.* TO 'karpovskiy'@'%' IDENTIFIED BY 'pa
 ```
 5. Запустить `db_migrate.py` скрипт: `./db_migrate.py`
 
+[Работающий пример](https://simple-messenger-server1.herokuapp.com/)
